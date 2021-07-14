@@ -1,11 +1,11 @@
 import React from 'react'
 import { MovieStyled } from './styles'
 
-export const Movie = ({ tittle, year, sinopsis, coverPage, date, gener, rating }) => {
+export const Movie = ({ tittle, sinopsis, coverPage, date, gener, rating }) => {
   return (
     <MovieStyled >
       <div className='tittle'>
-        <p>{tittle} {year}</p>
+        <p>{tittle} </p>
       </div>
       <div className="details">
         <div className='container__img'>

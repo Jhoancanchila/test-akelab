@@ -2,16 +2,18 @@ import React from 'react'
 import { Wrapper } from '../../Components/Wrapper'
 import { SearchMovies } from '../../Components/SearchMovies'
 import { ActionListStyled } from './styles'
+import { FilterAction } from '../FilterAction'
 
 export const ActionList = () => {
   return (
-    <ActionListStyled>
-      <Wrapper>
-        <div className="grid">
+    <Wrapper>
+      <ActionListStyled>
+        <div className="container__action">
           <h5>Películas</h5>
           <SearchMovies />
         </div>
-      </Wrapper>
-    </ActionListStyled>
+        <FilterAction />
+      </ActionListStyled>
+    </Wrapper>
   )
 }

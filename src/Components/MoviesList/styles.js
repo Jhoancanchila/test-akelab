@@ -5,8 +5,11 @@ export const MoviesListStyled = styled.div`
   grid-row-gap: 15px;
   grid-auto-flow: columns;
   grid-column-gap: 10px;
-  grid-template-columns: repeat(auto-fill, 375px);
-  justify-content: center;
-  align-items:center;
-  padding:1.5rem 0;
+  grid-template-columns:1fr ;
+  padding:1em 1em ;
+
+  @media screen and (min-width: 767px) {
+      grid-template-columns:1fr 1fr 1fr ;
+  }
+
 `

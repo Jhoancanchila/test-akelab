@@ -3,10 +3,11 @@ import styled from 'styled-components'
 export const MovieStyled = styled.div`
   text-align: left;
   background:#FFFFFF;
-  border: 1.5px solid #4F4F4F;
+  border: 1px solid #4F4F4F;
   border-radius: 16px;
   box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
+  width:375px;
   img {
     width: 100%;
     height: 180px;
@@ -30,7 +31,6 @@ export const MovieStyled = styled.div`
   }
   }
   .details {
-    padding:.5em 1em 0 ;
     background: #FFFFFF;
   }
   .info__movie{
@@ -47,8 +47,32 @@ export const MovieStyled = styled.div`
     }
   }
   p {
-    font-size: .9em;
-    margin-bottom: .5rem;
+    font-size: 12px;
+    margin: 0;
   }
 
+  @media screen and (min-width: 767px){
+    height:auto;
+    width:430px;
+    overflow:hidden;
+    .details {
+    display:flex;
+    height:auto;
+    justify-content:space-around
+  }
+  .container__img {
+    height:270px;
+    width:160px;
+
+    img{
+      height:100%;
+      width:100%;
+    }
+  }
+  .info__movie{
+    height:auto;
+    width:233px;
+    margin:10px
+  }
+  }
 `

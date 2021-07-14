@@ -3,6 +3,7 @@ export const initialState = {
   "images_url": "https://image.tmdb.org/t/p/w500",
   "movieList": [],
   "filteredListByName": [],
+  "filterByItem": '',
   "genres": [
     {
       "id": 28,

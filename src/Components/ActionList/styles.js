@@ -1,20 +1,13 @@
 import styled from 'styled-components'
 
 export const ActionListStyled = styled.div`
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-row-gap: 20px;
+  display:flex;
+  .container__action {
+    display: flex;
+    flex-direction:column;
+    padding:.5em 1em ;
+    text-align:left;
+    max-width:18em
   }
-  @media screen and (min-width: 768px) {
-    .grid {
-      display:flex;
-      flex-direction:column;
-      align-items:start;
-      margin-left:5rem ;
-      h5{
-        margin-top:10px
-      }
-    }
-  }
+  
 `

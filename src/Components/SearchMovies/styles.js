@@ -5,7 +5,7 @@ export const SearchMoviesStyled = styled.div`
   position: relative;
   .search {
     position: absolute;
-    right: 1em;
+    left: 12em;
     border-radius: 50%;
     border: none;
     img{
