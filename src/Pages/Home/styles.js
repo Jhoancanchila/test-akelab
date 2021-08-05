@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
 export const HomeStyled = styled.div`
+  background-color: #1d2029;
   display:flex;
   flex-direction:column;
   margin:0 auto;
+  min-height:100vh;
+  min-width:100vh;
   color :white;
   .wraper__card{
     display:flex;

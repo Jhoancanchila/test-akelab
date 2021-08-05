@@ -11,7 +11,9 @@ export const MoviesList = () => {
   const filteredListByName = useSelector(state => state.filteredListByName)
 
   const movieList = useSelector((state) => {
-
+    if (filteredListByName.length === 0 && state.filterByItem !== '') {
+      return state.moviesfilteredByItem
+    }
     if (filteredListByName.length > 0) {
       return filteredListByName
     }

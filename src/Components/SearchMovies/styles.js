@@ -4,6 +4,7 @@ export const SearchMoviesStyled = styled.div`
   display: flex;
   position: relative;
   .search {
+    cursor:pointer;
     position: absolute;
     left: 12em;
     border-radius: 50%;

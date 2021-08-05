@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const MoviesStyled = styled.div`
-background: #FAFAFA;
+background-color: #FAFAFA;
 min-height:100vh;
-min-width:100vh
+min-width:100vh;
+
 `
 
