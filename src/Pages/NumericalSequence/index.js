@@ -8,7 +8,8 @@ import { Error } from '../../Components/Error'
 import styled from 'styled-components'
 
 const SequenceStyled = styled.div`
-  margin:6rem 0 0 0
+  margin:6rem 0 0 0;
+
 `
 
 export const NumericalSequence = () => {

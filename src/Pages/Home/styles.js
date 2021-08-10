@@ -9,20 +9,20 @@ export const HomeStyled = styled.div`
   min-width:100vh;
   color :white;
   .wraper__card{
-    display:flex;
+    display:grid;
+    grid-gap:5rem;
+    grid-template-columns:1fr 1fr 1fr;
     align-items:center;
     justify-content:center;
-    margin-top:2rem;
+    margin:2rem 2rem 0;
+    
   }
   article{
     align-items:center;
     border:1px solid white;
     cursor:pointer;
     display:flex;
-    height:10rem;
     justify-content:center;
-    margin:0 3rem;
-    width:10rem;
   }
   h1{
     font-size:6rem;
@@ -31,4 +31,15 @@ export const HomeStyled = styled.div`
       text-decoration:none;
       color:white
     }
+
+    @media screen and (max-width: 375px) {
+
+    .wraper__card{
+       grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+       margin:2rem 11rem 0;
+    }
+    h1{
+      font-size:4rem;
+    }
+  }
 `
