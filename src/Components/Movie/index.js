@@ -1,7 +1,7 @@
 import React from 'react'
 import { MovieStyled } from './styles'
 
-export const Movie = ({ tittle, sinopsis, coverPage, date, gener, rating }) => {
+export const Movie = ({ tittle, sinopsis, coverPage, date, genres, rating }) => {
   return (
     <MovieStyled >
       <div className='tittle'>
@@ -18,7 +18,7 @@ export const Movie = ({ tittle, sinopsis, coverPage, date, gener, rating }) => {
           <div className='info__movie-items'>
             <p><strong>Titulo:</strong> {tittle}</p>
             <p><strong>Calificación:</strong> {rating}</p>
-            <p><strong>Genero:</strong> {gener}</p>
+            <p><strong>Genero:</strong> {genres + ' '}</p>
             <p><strong>Fecha de Realización:</strong> {date}</p>
           </div>
         </div>

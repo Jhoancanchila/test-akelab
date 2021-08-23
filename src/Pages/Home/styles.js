@@ -11,11 +11,10 @@ export const HomeStyled = styled.div`
   .wraper__card{
     display:grid;
     grid-gap:5rem;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     align-items:center;
     justify-content:center;
     margin:2rem 2rem 0;
-    
   }
   article{
     align-items:center;

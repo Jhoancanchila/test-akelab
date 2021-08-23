@@ -3,6 +3,7 @@ import { Wrapper } from '../../Components/Wrapper'
 import { SearchMovies } from '../../Components/SearchMovies'
 import { ActionListStyled } from './styles'
 import { FilterAction } from '../FilterAction'
+import { FilterCheckboxAction } from '../checkboxAction'
 
 export const ActionList = () => {
   return (
@@ -12,6 +13,7 @@ export const ActionList = () => {
           <h5>Películas</h5>
           <SearchMovies />
         </div>
+        <FilterCheckboxAction />
         <FilterAction />
       </ActionListStyled>
     </Wrapper>

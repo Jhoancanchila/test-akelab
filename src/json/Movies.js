@@ -5,6 +5,7 @@ export const initialState = {
   "filteredListByName": [],
   "moviesfilteredByItem": [],
   "filterByItem": '',
+  "filterByGender": [],
   "genres": [
     {
       "id": 28,

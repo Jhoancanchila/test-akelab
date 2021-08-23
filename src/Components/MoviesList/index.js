@@ -11,15 +11,19 @@ export const MoviesList = () => {
   const filteredListByName = useSelector(state => state.filteredListByName)
 
   const movieList = useSelector((state) => {
-    if (filteredListByName.length === 0 && state.filterByItem !== '') {
+    if (filteredListByName.length === 0 && state.filterByItem !== '' && state.filterByGender.length === 0) {
       return state.moviesfilteredByItem
     }
     if (filteredListByName.length > 0) {
       return filteredListByName
     }
+    if (state.filterByGender.length > 0) {
+      return state.filterByGender
+    }
 
     return state.movieList;
   })
+  console.log(movieList)
 
   useEffect(() => {
     dispatch({
@@ -28,19 +32,26 @@ export const MoviesList = () => {
     })
   }, [dispatch])
 
-
   return (
     <Wrapper>
       <MoviesListStyled>
         {
           movieList.map((movie) => {
+            const idGeneros = movie.genre_ids
+            const cargarGeneros = idGeneros.map(element => {
+              const genres = initialState.genres.map(genre => genre)
+              const genero = genres.filter(movie => movie.id === element)
+              const genreName = genero.map(item => item.name)
+              return genreName
+            })
+
             return (
               <Movie
                 tittle={movie.title}
                 key={movie.id}
                 coverPage={initialState.images_url + movie.poster_path}
                 date={movie.release_date}
-                gener={movie.genre_ids}
+                genres={cargarGeneros}
                 rating={movie.vote_average}
                 sinopsis={movie.overview}
               />

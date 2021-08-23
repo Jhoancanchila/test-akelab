@@ -13,11 +13,13 @@ export const reducer = (state, action) => {
       const charactersSearch = action.payload
       if (state.filterByItem !== '') {
         list = state.moviesfilteredByItem
+      } else if (state.filterByGender.length > 0) {
+        list = state.filterByGender
       } else {
         list = state.movieList
       }
-      //validamos que el charactersSearch tenga alguna cadena de caracter
-      const filteredListByName = charactersSearch !== '' ? list.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase())) : state.movieList
+      //validamos que el charactersSearch tenga alguna cadena de texto
+      const filteredListByName = charactersSearch !== '' ? list.filter(item => item.title.toLowerCase().includes(charactersSearch.toLowerCase())) : state.filterByGender || state.movieList
       return {
         ...state,
         filteredListByName,
@@ -30,6 +32,8 @@ export const reducer = (state, action) => {
 
       if (state.filteredListByName.length > 0) {
         list = state.filteredListByName
+      } else if (state.filterByGender.length > 0) {
+        list = state.filterByGender
       }
       else if (state.filterByItem !== '') {
         list = state.moviesfilteredByItem
@@ -60,6 +64,26 @@ export const reducer = (state, action) => {
 
           }
         }
+        case 'Nuevas-Antiguas': {
+          const newArrayOrder = list.sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+          const moviesfilteredByItem = newArrayOrder.map(item => item)
+          return {
+            ...state,
+            moviesfilteredByItem,
+            filterByItem: itemSelect,
+            filteredListByName: []
+          }
+        }
+        case 'Antiguas-Nuevas': {
+          const newArrayOrder = list.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
+          const moviesfilteredByItem = newArrayOrder.map(item => item)
+          return {
+            ...state,
+            moviesfilteredByItem,
+            filterByItem: itemSelect,
+            filteredListByName: []
+          }
+        }
         default: {
           return {
             ...state,
@@ -67,6 +91,44 @@ export const reducer = (state, action) => {
             filterByItem: ''
           }
         }
+      }
+    }
+    case 'FILTER_BY_GENDER': {
+      const idChecked = action.payload.map(item => item.id)
+      let list
+      if (state.filteredListByName.length > 0) {
+        list = state.filteredListByName
+      } else if (state.filterByItem !== '') {
+        list = state.moviesfilteredByItem
+      } else {
+        list = state.movieList
+      }
+      const newArrayGender = []
+      list.forEach(item => {
+        idChecked.forEach(element => {
+          item.genre_ids.forEach(e => {
+            if (element === e) {
+              newArrayGender.push(item)
+            }
+          })
+        })
+      })
+      const ids = newArrayGender.map(item => item.id)
+
+      //filtro ids para que no hallan repetidos dentro del array
+      const filterIds = ids.filter((valor, index) => {
+        return ids.indexOf(valor) === index;
+      })
+      const filterByGender = []
+      filterIds.forEach(element => {
+        const filterMovies = state.movieList.find(item => item.id === element)
+        filterByGender.push(filterMovies)
+      })
+      // console.log(filterByGender)
+      return {
+        ...state,
+        filterByGender,
+        filteredListByName: []
       }
     }
     default: {

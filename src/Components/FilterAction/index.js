@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import ArrowIcon from '../../assets/icons/ArrowIcon.png'
+import ArrowIconOpen from '../../assets/icons/ArrowIconOpen.png'
 import { FilterActionByItemAction } from './styles'
 
 export const FilterAction = () => {
@@ -19,7 +20,7 @@ export const FilterAction = () => {
       <FilterActionByItemAction>
         <div className={`${dropdown ? 'dropdown open' : 'dropdown'}`} onClick={() => setdropdown(!dropdown)} >
           Ordenar
-          <i className='icon__action '><img src={ArrowIcon} alt="" /></i>
+          <i className='icon__action '><img src={!dropdown ? ArrowIcon : ArrowIconOpen} alt="" /></i>
           <ul>
             <li><strong>Fecha</strong></li>
             <li onClick={() => handleClickItem('Nuevas-Antiguas')}>Nuevas-Antiguas</li>
