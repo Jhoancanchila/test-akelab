@@ -11,8 +11,8 @@ export const MoviesList = () => {
   const filteredListByName = useSelector(state => state.filteredListByName)
 
   const movieList = useSelector((state) => {
-    if (filteredListByName.length === 0 && state.filterByItem !== '' && state.filterByGender.length === 0) {
-      return state.moviesfilteredByItem
+    if (filteredListByName.length === 0 && state.orderByItem !== '' && state.filterByGender.length === 0) {
+      return state.moviesOrderByDateCalification
     }
     if (filteredListByName.length > 0) {
       return filteredListByName

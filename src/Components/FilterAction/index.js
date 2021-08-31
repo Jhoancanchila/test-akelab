@@ -10,7 +10,7 @@ export const FilterAction = () => {
 
   const handleClickItem = (itemSelect) => {
     dispatch({
-      type: 'FILTER_BY_ITEM',
+      type: 'ORDER_BY_DATE_CALIFICATION',
       payload: itemSelect
     })
   }

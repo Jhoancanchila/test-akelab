@@ -7,12 +7,12 @@ export const reducer = (state, action) => {
         movieList: action.payload
       }
     }
-    case 'SEARCH_CONTENT': {
+    case 'FILTER_BY_SEARCH_CONTENT': {
       let list
 
       const charactersSearch = action.payload
-      if (state.filterByItem !== '') {
-        list = state.moviesfilteredByItem
+      if (state.orderByItem !== '') {
+        list = state.moviesOrderByDateCalification
       } else if (state.filterByGender.length > 0) {
         list = state.filterByGender
       } else {
@@ -23,11 +23,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         filteredListByName,
-        filterByItem: ''
+        orderByItem: ''
 
       }
     }
-    case 'FILTER_BY_ITEM': {
+    case 'ORDER_BY_DATE_CALIFICATION': {
       const itemSelect = action.payload
 
       let list
@@ -36,8 +36,8 @@ export const reducer = (state, action) => {
         list = state.filteredListByName
       } else if (state.filterByGender.length > 0) {
         list = state.filterByGender
-      } else if (state.filterByItem !== '') {
-        list = state.moviesfilteredByItem
+      } else if (state.orderByItem !== '') {
+        list = state.moviesOrderByDateCalification
       }
       else {
         list = state.movieList
@@ -45,67 +45,68 @@ export const reducer = (state, action) => {
 
       switch (itemSelect) {
         case '0-10 Puntos': {
-          const moviesfilteredByItem = list.sort(function (a, b) { return (a.vote_average - b.vote_average) })
+          const moviesOrderByDateCalification = list.sort(function (a, b) { return (a.vote_average - b.vote_average) })
           return {
             ...state,
-            moviesfilteredByItem,
-            filterByItem: itemSelect,
+            moviesOrderByDateCalification,
+            orderByItem: itemSelect,
             filteredListByName: [],
           }
         }
         case '10-0 Puntos': {
-          const moviesfilteredByItem = list.sort(function (a, b) { return (b.vote_average - a.vote_average) })
+          const moviesOrderByDateCalification = list.sort(function (a, b) { return (b.vote_average - a.vote_average) })
           return {
             ...state,
-            moviesfilteredByItem,
-            filterByItem: itemSelect,
+            moviesOrderByDateCalification,
+            orderByItem: itemSelect,
             filteredListByName: []
           }
         }
         case 'Nuevas-Antiguas': {
-          const moviesfilteredByItem = list.sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+          const moviesOrderByDateCalification = list.sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
           return {
             ...state,
-            moviesfilteredByItem,
-            filterByItem: itemSelect,
+            moviesOrderByDateCalification,
+            orderByItem: itemSelect,
             filteredListByName: []
           }
         }
         case 'Antiguas-Nuevas': {
-          const moviesfilteredByItem = list.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
+          const moviesOrderByDateCalification = list.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
           return {
             ...state,
-            moviesfilteredByItem,
-            filterByItem: itemSelect,
+            moviesOrderByDateCalification,
+            orderByItem: itemSelect,
             filteredListByName: []
           }
         }
         default: {
           return {
             ...state,
-            moviesfilteredByItem: [],
-            filterByItem: ''
+            moviesOrderByDateCalification: [],
+            orderByItem: ''
           }
         }
       }
     }
     case 'FILTER_BY_GENDER': {
       const idsChecked = action.payload
+      console.log(idsChecked)
       let list
       if (state.filteredListByName.length > 0) {
         list = state.filteredListByName
-      } else if (state.filterByItem !== '') {
-        list = state.moviesfilteredByItem
+      } else if (state.orderByItem !== '') {
+        list = state.moviesOrderByDateCalification
       } else {
         list = state.movieList
       }
 
-      const filterByGender = list.filter(movie => idsChecked.length === 0 ? true : movie.genre_ids.filter(item => idsChecked.includes(item)).length > 0).map(movie => movie)
+      const filterByGender = idsChecked.length > 0 ? list.filter(movie => movie.genre_ids.filter(item => idsChecked.includes(item)).length > 0).map(movie => movie) : state.movieList
       return {
         ...state,
         filterByGender,
         filteredListByName: [],
-        filterByItem: '',
+        orderByItem: '',
       }
     }
     default: {

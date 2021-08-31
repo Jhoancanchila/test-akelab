@@ -13,7 +13,6 @@ export const FilterCheckboxAction = () => {
 
   const filteritemsChecked = (id) => {
     let newIds = [...idsChecked]
-    console.log(newIds)
     if (newIds.includes(id)) {
       newIds = idsChecked.filter(item => item !== id)
     } else {

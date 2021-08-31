@@ -11,7 +11,7 @@ export const SearchMovies = () => {
   const filterByName = (e) => {
     setInputValue(e.target.value)
     dispatch({
-      type: 'SEARCH_CONTENT',
+      type: 'FILTER_BY_SEARCH_CONTENT',
       payload: e.target.value
     })
   }
