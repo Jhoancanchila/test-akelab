@@ -23,6 +23,8 @@ export const reducer = (state, action) => {
       return {
         ...state,
         filteredListByName,
+        filterByItem: ''
+
       }
     }
     case 'FILTER_BY_ITEM': {
@@ -34,8 +36,7 @@ export const reducer = (state, action) => {
         list = state.filteredListByName
       } else if (state.filterByGender.length > 0) {
         list = state.filterByGender
-      }
-      else if (state.filterByItem !== '') {
+      } else if (state.filterByItem !== '') {
         list = state.moviesfilteredByItem
       }
       else {
@@ -44,29 +45,25 @@ export const reducer = (state, action) => {
 
       switch (itemSelect) {
         case '0-10 Puntos': {
-          const newArrayOrder = list.sort(function (a, b) { return (a.vote_average - b.vote_average) })
-          const moviesfilteredByItem = newArrayOrder.map(item => item)
+          const moviesfilteredByItem = list.sort(function (a, b) { return (a.vote_average - b.vote_average) })
           return {
             ...state,
             moviesfilteredByItem,
             filterByItem: itemSelect,
-            filteredListByName: []
+            filteredListByName: [],
           }
         }
         case '10-0 Puntos': {
-          const newArrayOrder = list.sort(function (a, b) { return (b.vote_average - a.vote_average) })
-          const moviesfilteredByItem = newArrayOrder.map(item => item)
+          const moviesfilteredByItem = list.sort(function (a, b) { return (b.vote_average - a.vote_average) })
           return {
             ...state,
             moviesfilteredByItem,
             filterByItem: itemSelect,
             filteredListByName: []
-
           }
         }
         case 'Nuevas-Antiguas': {
-          const newArrayOrder = list.sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
-          const moviesfilteredByItem = newArrayOrder.map(item => item)
+          const moviesfilteredByItem = list.sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
           return {
             ...state,
             moviesfilteredByItem,
@@ -75,8 +72,7 @@ export const reducer = (state, action) => {
           }
         }
         case 'Antiguas-Nuevas': {
-          const newArrayOrder = list.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
-          const moviesfilteredByItem = newArrayOrder.map(item => item)
+          const moviesfilteredByItem = list.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
           return {
             ...state,
             moviesfilteredByItem,
@@ -94,7 +90,7 @@ export const reducer = (state, action) => {
       }
     }
     case 'FILTER_BY_GENDER': {
-      const idChecked = action.payload.map(item => item.id)
+      const idsChecked = action.payload
       let list
       if (state.filteredListByName.length > 0) {
         list = state.filteredListByName
@@ -103,32 +99,13 @@ export const reducer = (state, action) => {
       } else {
         list = state.movieList
       }
-      const newArrayGender = []
-      list.forEach(item => {
-        idChecked.forEach(element => {
-          item.genre_ids.forEach(e => {
-            if (element === e) {
-              newArrayGender.push(item)
-            }
-          })
-        })
-      })
-      const ids = newArrayGender.map(item => item.id)
 
-      //filtro ids para que no hallan repetidos dentro del array
-      const filterIds = ids.filter((valor, index) => {
-        return ids.indexOf(valor) === index;
-      })
-      const filterByGender = []
-      filterIds.forEach(element => {
-        const filterMovies = state.movieList.find(item => item.id === element)
-        filterByGender.push(filterMovies)
-      })
-      // console.log(filterByGender)
+      const filterByGender = list.filter(movie => idsChecked.length === 0 ? true : movie.genre_ids.filter(item => idsChecked.includes(item)).length > 0).map(movie => movie)
       return {
         ...state,
         filterByGender,
-        filteredListByName: []
+        filteredListByName: [],
+        filterByItem: '',
       }
     }
     default: {

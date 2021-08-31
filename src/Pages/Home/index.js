@@ -6,7 +6,7 @@ export const Home = () => {
   return (
     <HomeStyled>
       <div>
-        <h1>Prueba Akelab</h1>
+        <h1>Prueba AKElab</h1>
       </div>
       <div className='wraper__card'>
         <Link to="/fibonacci">

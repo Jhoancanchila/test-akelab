@@ -4,17 +4,23 @@ export const FilterActionByItemAction = styled.div`
 display:flex;
 align-items:center;
 margin-top:30px;
+font-size: 12px;
+
+
+p{
+   border-left:1px solid #4F4F4F;
+   margin :0;
+   padding:.5em 0 .5em 5px;
+}
 .dropdown {
-  border-left:1px solid #4F4F4F;
   cursor: pointer;
   text-align: center;
-  font-size: 12px;
   position: relative;
-  padding:.5em 4em .5em 1em;
+  padding:.5em 8em .5em 1em;
 }
 
-.dropdown .icon__action {
-  margin-left: 10px;
+.dropdown .icon__action img{
+transition-duration: .1s;
 }
 
 .dropdown ul {
@@ -25,7 +31,7 @@ margin-top:30px;
   text-align: center;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -40%;
   list-style-type: none;
   background:#EFEFEF;
   width: 100%;

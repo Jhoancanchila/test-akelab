@@ -16,21 +16,19 @@ export const FilterAction = () => {
   }
 
   return (
-    <>
-      <FilterActionByItemAction>
-        <div className={`${dropdown ? 'dropdown open' : 'dropdown'}`} onClick={() => setdropdown(!dropdown)} >
-          Ordenar
-          <i className='icon__action '><img src={!dropdown ? ArrowIcon : ArrowIconOpen} alt="" /></i>
-          <ul>
-            <li><strong>Fecha</strong></li>
-            <li onClick={() => handleClickItem('Nuevas-Antiguas')}>Nuevas-Antiguas</li>
-            <li onClick={() => handleClickItem('Antiguas-Nuevas')}>Antiguas-Nuevas</li>
-            <li><strong>Calificación</strong></li>
-            <li onClick={() => handleClickItem('0-10 Puntos')}>0-10 Puntos</li>
-            <li onClick={() => handleClickItem('10-0 Puntos')}>10-0 Puntos</li>
-          </ul>
-        </div>
-      </FilterActionByItemAction>
-    </>
+    <FilterActionByItemAction>
+      <p>Ordenar</p>
+      <div className={`${dropdown ? 'dropdown open' : 'dropdown'}`} onClick={() => setdropdown(!dropdown)} >
+        <i className='icon__action '><img src={!dropdown ? ArrowIcon : ArrowIconOpen} alt="" /></i>
+        <ul>
+          <li><strong>Fecha</strong></li>
+          <li onClick={() => handleClickItem('Nuevas-Antiguas')}>Nuevas-Antiguas</li>
+          <li onClick={() => handleClickItem('Antiguas-Nuevas')}>Antiguas-Nuevas</li>
+          <li><strong>Calificación</strong></li>
+          <li onClick={() => handleClickItem('0-10 Puntos')}>0-10 Puntos</li>
+          <li onClick={() => handleClickItem('10-0 Puntos')}>10-0 Puntos</li>
+        </ul>
+      </div>
+    </FilterActionByItemAction>
   )
 }

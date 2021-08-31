@@ -38,5 +38,4 @@ margin-top:30px;
 input{
   margin-right:0.5rem
 }
-
 `

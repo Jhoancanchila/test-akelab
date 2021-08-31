@@ -23,7 +23,6 @@ export const MoviesList = () => {
 
     return state.movieList;
   })
-  console.log(movieList)
 
   useEffect(() => {
     dispatch({
@@ -37,21 +36,16 @@ export const MoviesList = () => {
       <MoviesListStyled>
         {
           movieList.map((movie) => {
-            const idGeneros = movie.genre_ids
-            const cargarGeneros = idGeneros.map(element => {
-              const genres = initialState.genres.map(genre => genre)
-              const genero = genres.filter(movie => movie.id === element)
-              const genreName = genero.map(item => item.name)
-              return genreName
-            })
-
             return (
               <Movie
                 tittle={movie.title}
                 key={movie.id}
                 coverPage={initialState.images_url + movie.poster_path}
                 date={movie.release_date}
-                genres={cargarGeneros}
+                genres={movie.genre_ids.map(genreId => {
+                  const genres = initialState.genres.filter(item => item.id === genreId)
+                  return genres[0].name
+                })}
                 rating={movie.vote_average}
                 sinopsis={movie.overview}
               />
