@@ -6,15 +6,14 @@ export const HomeStyled = styled.div`
   flex-direction:column;
   margin:0 auto;
   min-height:100vh;
-  min-width:100vh;
   color :white;
   .wraper__card{
     display:grid;
     grid-gap:5rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
     align-items:center;
     justify-content:center;
-    margin:2rem 2rem 0;
+    padding:2rem
   }
   article{
     align-items:center;
@@ -23,22 +22,42 @@ export const HomeStyled = styled.div`
     display:flex;
     justify-content:center;
   }
-  h1{
-    font-size:6rem;
+  h2{
+    display:flex;
+    justify-content:center;
+    font-size:5rem;
+    p{
+     color:#7F3F97;
+    padding-left:2rem
+    }
+    div{
+      display:flex;
+      align-items:flex-start;
+      padding-top:.8rem;
+      padding-left:.2rem
+    }
+     i{
+      font-size:3rem;
+      color:#F66731
+       }
   }
-   a{
+  a{
       text-decoration:none;
       color:white
-    }
+  }
 
     @media screen and (max-width: 375px) {
-
-    .wraper__card{
-       grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-       margin:2rem 11rem 0;
-    }
-    h1{
-      font-size:4rem;
-    }
-  }
+      padding:2rem;
+      .wraper__card{
+        grid-gap:2rem
+      }
+    h2{
+      font-size:3rem;
+      p{
+        padding-left:1rem
+      }
+      i{
+        font-size:2rem
+       }
+      }
 `

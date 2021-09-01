@@ -6,6 +6,7 @@ import { List } from '../../Components/List'
 import { getNumericalSequence } from '../../Services/getNumericalSequence'
 import { Error } from '../../Components/Error'
 import styled from 'styled-components'
+import { WrapperCards } from '../../Components/WrapperCards'
 
 const SequenceStyled = styled.div`
   margin:6rem 0 0 0;
@@ -37,10 +38,12 @@ export const NumericalSequence = () => {
         <Input placeholder="Ingresa un número" value={valueInput} onChange={handleInput} />
         <Button text='secuencia' />
       </Form>
-      {
-        error ? <Error message='Debes ingresar un número mayor o igual a 1' /> :
-          sequence.map((num, index) => <List key={index} num={num} />)
-      }
+      <WrapperCards>
+        {
+          error ? <Error message='Debes ingresar un número mayor o igual a 1' /> :
+            sequence.map((num, index) => <List key={index} num={num} />)
+        }
+      </WrapperCards>
     </SequenceStyled>
   )
 }

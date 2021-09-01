@@ -5,6 +5,7 @@ import { Form } from '../Form'
 import { List } from '../List'
 import { Error } from '../Error'
 import { getFibonacciSecuence } from '../../Services/getFibonacciSequence'
+import { WrapperCards } from '../WrapperCards'
 
 export const Search = () => {
   const [valueInput, setValueInput] = useState('')
@@ -31,10 +32,12 @@ export const Search = () => {
         <Input placeholder="ingresa un número" value={valueInput} onChange={handleInput} />
         <Button text='Fibonacci' />
       </Form>
-      {
-        error ? <Error message='Debes ingresar un número mayor o igual a 1' /> :
-          fibo.map((num, index) => <List key={index} num={num} />)
-      }
+      <WrapperCards>
+        {
+          error ? <Error message='Debes ingresar un número mayor o igual a 1' /> :
+            fibo.map((num, index) => <List key={index} num={num} />)
+        }
+      </WrapperCards>
     </>
   )
 }
