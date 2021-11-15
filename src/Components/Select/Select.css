@@ -1,0 +1,266 @@
+/* Estilos para opciones desplegables: */
+.Select__container {
+  border: 0px solid blue;
+  width: 200px;
+  position: absolute;
+  z-index: 10;
+  top: 50px;
+  right: 0px;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  text-transform: initial;
+  letter-spacing: initial;
+}
+
+.modal_testing {
+  left: -400px;
+}
+
+.Select__container__up {
+  border: 0px solid red;
+  width: 200px;
+  position: absolute;
+  z-index: 10;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  text-transform: initial;
+  letter-spacing: initial;
+}
+
+.Select__options_box {
+  width: 200px;
+  max-height: 250px;
+  position: relative;
+  background: #efefef;
+  border-radius: 8px;
+  overflow-y: overlay;
+  overflow-x: hidden;
+  border: 0px solid red;
+}
+
+/* Estilos para el posicionamiento del indicador donde se esta expandiendo el menu desplegable. */
+
+/* left */
+.Select__options_left {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -10px;
+  left: 4px;
+  transform: rotate(45deg);
+  background: #efefef;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+/* center */
+.Select__options_center {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  right: 50%;
+  transform: rotate(45deg);
+  background: #efefef;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+/* right */
+.Select__options_right {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  transform: rotate(45deg);
+  background: #efefef;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+/*Up*/
+.Select__options_up {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: calc(100% - 18px);
+  right: 5px;
+  transform: rotate(45deg);
+  background: #efefef;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+/* Estilos para cada opcion del select */
+.Dropdown__option {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-family: 'Futura LT', Arial;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1d1d1b;
+  cursor: pointer;
+  list-style: none;
+  border-left: 3px solid #efefef;
+  padding: 9px;
+}
+
+.Dropdown__option:hover {
+  background: #c4c4c4;
+  border-left: 3px solid #c4c4c4;
+}
+
+.Dropdown__option_purple:hover {
+  background: #c4c4c4;
+  border-left: 3px solid #7168a1;
+}
+
+.Dropdown__option_blue:hover {
+  background: #c4c4c4;
+  border-left: 3px solid #277496;
+}
+
+.Dropdown__option_orange:hover {
+  background: #c4c4c4;
+  border-left: 3px solid #ef7b44;
+}
+
+/* Estilos para las diferentes opciones seleccionada */
+.Selected__purple {
+  border-left: 3px solid #7168a1;
+}
+
+.Selected__blue {
+  border-left: 3px solid #277496;
+}
+
+.Selected__orange {
+  border-left: 3px solid #ef7b44;
+}
+
+
+.Selected__purple_start {
+  border-left: 3px solid #7168a1;
+  border-radius: 9px 0px;
+}
+
+.Selected__blue_start {
+  border-left: 3px solid #277496;
+  border-radius: 9px 0px;
+}
+
+.Selected__orange_start {
+  border-left: 3px solid #ef7b44;
+  border-radius: 9px 0px;
+}
+
+.Selected__purple_fin {
+  border-left: 3px solid #7168a1;
+  border-radius: 0px 0px 0px 9px;
+}
+
+.Selected__blue_fin {
+  border-left: 3px solid #277496;
+  border-radius: 0px 0px 0px 9px;
+}
+
+.Selected__orange_fin {
+  border-left: 3px solid #ef7b44;
+  border-radius: 0px 0px 0px 9px;
+}
+
+/* Estilos que se activan para el overlay */
+.Overlay__select {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: hidden;
+  z-index: 1;
+
+  background: 'transparent';
+
+  border: 0px solid red;
+}
+
+/* Icon Class section */
+
+.select_icons_svg {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  margin: 0px;
+  padding: 8px 0;
+}
+
+.icon_svg_container {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.additional_modal_selected {
+  position: absolute;
+  width: 250px;
+  height: fit-content;
+  background-color: gray;
+  margin-left: -450px;
+  z-index: 200;
+  top: calc(100% + 105px);
+  background: #efefef;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.container_selected {
+  position: absolute;
+  border: 0px solid red;
+  display: flex;
+}
+
+.additional_modal_selected_up {
+  position: absolute;
+  width: 250px;
+  height: fit-content;
+  background-color: gray;
+  left: -260px;
+  z-index: 50;
+  bottom: calc(100% - 250px);
+  background: #efefef;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.element_inside_aditional_modal {
+  position: relative;
+  margin-left: 0px;
+  color: black;
+}
+
+.History_container_checkbox_dimension {
+  border: 0px solid red;
+  height: 40px;
+  width: 35px;
+  margin-left: -5px;
+  padding-top: 4px;
+}

@@ -7,20 +7,18 @@ import { useSelector, useDispatch } from 'react-redux'
 
 
 export const MoviesList = () => {
+
   const dispatch = useDispatch()
   const filteredListByName = useSelector(state => state.filteredListByName)
+  const functionSort = useSelector(state => state.functionSort)
 
   const movieList = useSelector((state) => {
-    if (filteredListByName.length === 0 && state.orderByItem !== '' && state.filterByGender.length === 0) {
-      return state.moviesOrderByDateCalification
-    }
     if (filteredListByName.length > 0) {
       return filteredListByName
     }
     if (state.filterByGender.length > 0) {
       return state.filterByGender
     }
-
     return state.movieList;
   })
 
@@ -30,7 +28,7 @@ export const MoviesList = () => {
       payload: initialState.results
     })
   }, [dispatch])
-
+movieList.sort(functionSort)
   return (
     <Wrapper>
       <MoviesListStyled>

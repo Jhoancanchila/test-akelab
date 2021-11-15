@@ -4,13 +4,19 @@ export const FilterByCheckboxAction = styled.div`
 display:flex;
 align-items:center;
 margin-top:30px;
+.filter__close_container{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
 .checkbox {
   border-left:1px solid #4F4F4F;
   cursor: pointer;
   text-align: center;
   font-size: 12px;
   position: relative;
-  padding:.5em 1em;
 }
 .checkbox .div__filterMenu{
   border-radius: 10px;
@@ -22,20 +28,52 @@ margin-top:30px;
   left: -240%;
   list-style-type: none;
   background:  #EFEFEF;
-  width: 8rem;
-  z-index: 99;
+  width: 190px;
+  z-index: 80;
 }
-
+.icon__action{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  margin-left: 5px;
+}
+.icon__action:hover{
+background-color:#EFEFEF;
+}
 .checkbox.open .div__filterMenu {
   display: block;
+}
+.div__filterMenu span{
+  font-weight:bold;
+  font-size:1.3em
 }
 
 .checkbox .div__filterMenu  label {
   display :flex;
   margin: 5px 0;
-  align-items:center
+  align-items:center;
+  font-size:1.1em
 }
-input{
-  margin-right:0.5rem
+.checkbox__container_input{
+  padding-left:40px
+}
+.input__Action{
+  margin-right:0.5rem;
+  cursor:pointer
+}
+
+.filter__arrow {
+  position: absolute;
+  left:9px;
+  top: 100%;
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg);
+  background: #EFEFEF;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
 }
 `

@@ -20,7 +20,7 @@ p{
 }
 
 .dropdown .icon__action img{
-transition-duration: .1s;
+  transition: 0.5s;
 }
 
 .dropdown ul {

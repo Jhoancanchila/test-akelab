@@ -3,9 +3,8 @@ export const initialState = {
   "images_url": "https://image.tmdb.org/t/p/w500",
   "movieList": [],
   "filteredListByName": [],
-  "moviesOrderByDateCalification": [],
-  "orderByItem": '',
   "filterByGender": [],
+  "functionSort":null,
   "genres": [
     {
       "id": 28,
