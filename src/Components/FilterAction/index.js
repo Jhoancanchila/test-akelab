@@ -4,6 +4,8 @@ import ArrowIcon from '../../assets/icons/ArrowIcon.png'
 import ArrowIconOpen from '../../assets/icons/ArrowIconOpen.png'
 import { FilterActionByItemAction } from './styles'
 
+import { BackgroundIcon } from '../BackgroundIcon/BackgroundIcon'
+
 export const FilterAction = () => {
   const [dropdown, setdropdown] = useState(false)
   const dispatch = useDispatch()
@@ -19,7 +21,14 @@ export const FilterAction = () => {
     <FilterActionByItemAction>
       <p>Ordenar</p>
       <div className={`${dropdown ? 'dropdown open' : 'dropdown'}`} onClick={() => setdropdown(!dropdown)} >
-        <i className='icon__action '><img src={!dropdown ? ArrowIcon : ArrowIconOpen} alt="" /></i>
+        {/* <i className='icon__action '><img src={!dropdown ? ArrowIcon : ArrowIconOpen} alt="" /></i> */}
+        <div className="ActionList__Filter_icons" >
+          <BackgroundIcon
+            name='Filter'
+            className='ActionList__Filter_icons_item '
+            setFillColor={'#6D6E70'}
+          />
+        </div>
         <ul>
           <li><strong>Fecha</strong></li>
           <li onClick={() => handleClickItem('Nuevas-Antiguas')}>Nuevas-Antiguas</li>

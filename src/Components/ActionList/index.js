@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import { Wrapper } from '../../Components/Wrapper'
-import { SearchMovies } from '../../Components/SearchMovies'
-import { ActionListStyled } from './styles'
-// import { FilterAction } from '../FilterAction'
-import { FilterCheckboxAction } from '../checkboxAction'
-import { BackgroundIcon } from '../BackgroundIcon/BackgroundIcon'
-import Sort from '../Sort'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react';
+import { Wrapper } from '../../Components/Wrapper';
+// import { SearchMovies } from '../../Components/SearchMovies';
+import { ActionListStyled } from './styles';
+// import { FilterAction } from '../FilterAction';
+import { FilterCheckboxAction } from '../checkboxAction';
+import { BackgroundIcon } from '../BackgroundIcon/BackgroundIcon';
+import Sort from '../Sort';
+import { useDispatch } from 'react-redux';
+import InputSearch from '../InputSearch';
+import { GoBack } from '../GoBack';
 
 
 export const ActionList = () => {
-  const dispatch = useDispatch()
-  const [showSort, setShowSort] = useState(false)
-  const [ordenSelected, setOrdenSelected] = useState('Ascendente')
+  const dispatch = useDispatch();
+  const [showSort, setShowSort] = useState(false);
+  const [ordenSelected, setOrdenSelected] = useState('Ascendente');
+  const [value, setValue] = useState('');
+  const [showSearch, setShowSearch] = useState(false);
   const [dataSort, setDataSort] = useState([
     {
       id: 1,
@@ -26,7 +30,7 @@ export const ActionList = () => {
       ref: 'raiting',
       SELECTED: 0
     }
-  ])
+  ]);
 
   const sortMovies = (a, b) => {
     let sort = dataSort.filter(item => item.SELECTED === 1)[0]
@@ -41,20 +45,33 @@ export const ActionList = () => {
   dispatch({
     type:'SET_FUCTION_SORT',
     payload: sortMovies
-  })
-  
+  });
+  dispatch({
+    type: 'FILTER_BY_SEARCH_CONTENT',
+    payload: value
+  });
+  console.log('value',value)
   return (
     <Wrapper>
       <ActionListStyled>
         <div className="container__action">
-          <h5>Películas</h5>
-          <SearchMovies />
+          <div className="content__back_title">
+            <GoBack/>
+            <h5>Películas</h5>
+          </div>
+          <InputSearch
+            placeholder={'Search Movie'}
+            value= {value}
+            setValue= {setValue}
+            showSearch= {showSearch}
+            setShowSearch= {setShowSearch}
+          />
         </div>
         <FilterCheckboxAction />
         {showSort &&
           <Sort
-            top='85px'
-            right='700px'
+            top='100px'
+            right='0px'
             setShowSort={setShowSort}
             description={'Ordena tus películas por fecha y Calificación'}
             dataSort={dataSort}

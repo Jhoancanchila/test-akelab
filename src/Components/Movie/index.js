@@ -4,7 +4,7 @@ import { MovieStyled } from './styles'
 export const Movie = ({ tittle, sinopsis, coverPage, date, genres, rating }) => {
   return (
     <MovieStyled >
-      <div className='tittle'>
+      <div className='title'>
         <p>{tittle} </p>
       </div>
       <div className="details">

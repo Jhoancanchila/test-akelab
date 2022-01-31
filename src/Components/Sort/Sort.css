@@ -100,8 +100,9 @@ font-style: normal;
   display: flex;
   border: 1px solid #3A3335;
   border-radius: 7px;
-  padding: 5px 10px;
+  padding: 10px;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -114,6 +115,8 @@ font-style: normal;
   line-height: 22px;
   letter-spacing: 0.03em;
   color: #3F3F3F;
+
+  margin: 0;
 }
 
 .Sort__ascendente_container {

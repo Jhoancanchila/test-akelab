@@ -7,10 +7,13 @@ import { getNumericalSequence } from '../../Services/getNumericalSequence'
 import { Error } from '../../Components/Error'
 import styled from 'styled-components'
 import { WrapperCards } from '../../Components/WrapperCards'
+import { GoBack } from '../../Components/GoBack'
 
 const SequenceStyled = styled.div`
-  margin:6rem 0 0 0;
-
+  margin:20px 0 0 0;
+  .NumericalSecuence__goBack_container {
+    padding: 0 0 0 2rem;
+  }
 `
 
 export const NumericalSequence = () => {
@@ -34,6 +37,9 @@ export const NumericalSequence = () => {
   }
   return (
     <SequenceStyled>
+      <div className="NumericalSecuence__goBack_container">
+        <GoBack/>
+      </div>
       <Form onSubmit={handleButton} >
         <Input placeholder="Ingresa un número" value={valueInput} onChange={handleInput} />
         <Button text='secuencia' />

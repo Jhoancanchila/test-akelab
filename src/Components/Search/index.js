@@ -6,6 +6,7 @@ import { List } from '../List'
 import { Error } from '../Error'
 import { getFibonacciSecuence } from '../../Services/getFibonacciSequence'
 import { WrapperCards } from '../WrapperCards'
+import { GoBack } from '../GoBack'
 
 export const Search = () => {
   const [valueInput, setValueInput] = useState('')
@@ -28,6 +29,9 @@ export const Search = () => {
   }
   return (
     <>
+      <div className="Search__goBack_container">
+        <GoBack/>
+      </div>
       <Form onSubmit={handleButton} >
         <Input placeholder="ingresa un número" value={valueInput} onChange={handleInput} />
         <Button text='Fibonacci' />

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const FilterByCheckboxAction = styled.div`
 display:flex;
 align-items:center;
-margin-top:30px;
 .filter__close_container{
   width: 100%;
   height: 100%;
@@ -12,7 +11,6 @@ margin-top:30px;
   position: fixed;
 }
 .checkbox {
-  border-left:1px solid #4F4F4F;
   cursor: pointer;
   text-align: center;
   font-size: 12px;
@@ -67,7 +65,7 @@ background-color:#EFEFEF;
 
 .filter__arrow {
   position: absolute;
-  left:9px;
+  left:4px;
   top: 100%;
   width: 30px;
   height: 30px;
@@ -75,5 +73,25 @@ background-color:#EFEFEF;
   background: #EFEFEF;
   box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
+}
+
+.ActionList__Filter_icons {
+	width: 40px;
+	height: 40px;
+	position: relative;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin:30px 0 0;
+	cursor: pointer;
+  padding:10px
+}
+.ActionList__Filter_icons:hover {
+	background: #EFEFEF;
+}
+ActionList__Filter_icons_item {
+  height: 100%;
+  width: 100%
 }
 `

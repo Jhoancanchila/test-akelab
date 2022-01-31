@@ -1,0 +1,22 @@
+.GoBack__container_icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50px;
+  cursor: pointer;
+
+  padding: 10px;
+  margin: 0;
+}
+
+.GoBack__container_icon:hover{
+  background-color: #EFEFEF;
+}
+
+.GoBack__content_icon{
+  width: 100%;
+  height: 100%;
+}

@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
-import { initialState } from '../../json/Movies'
-import { FilterByCheckboxAction } from './styles'
-import FilterIcon from '../../assets/icons/FilterIcon.png'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { initialState } from '../../json/Movies';
+import { FilterByCheckboxAction } from './styles';
+import { useDispatch } from 'react-redux';
+
+import { BackgroundIcon } from '../BackgroundIcon/BackgroundIcon';
 
 export const FilterCheckboxAction = () => {
 
-  const [checkbox, setCheckbox] = useState(false)
-  const [idsChecked, setIdsChecked] = useState([])
-  const genres = initialState.genres
-  const dispatch = useDispatch()
+  const [checkbox, setCheckbox] = useState(false);
+  const [idsChecked, setIdsChecked] = useState([]);
+  const genres = initialState.genres;
+  const dispatch = useDispatch();
 
   const filteritemsChecked = (id) => {
     let newIds = [...idsChecked]
@@ -30,8 +31,15 @@ export const FilterCheckboxAction = () => {
   return (
     <FilterByCheckboxAction>
       <div className={`${checkbox ? 'checkbox open' : 'checkbox'}`} onClick={() => setCheckbox(!checkbox)} >
-        <i className='icon__action '><img src={FilterIcon} alt="" /></i>
-          <div className="filter__close_container" onClick={() => setCheckbox(false)} />
+        {/* <i className='icon__action '><img src={FilterIcon} alt="" /></i> */}
+        <div className="ActionList__Filter_icons" >
+          <BackgroundIcon
+            name='Filter'
+            className='ActionList__Filter_icons_item '
+            setFillColor={'#6D6E70'}
+          />
+        </div>
+          <div className={checkbox ? "filter__close_container" : ""} onClick={() => setCheckbox(false)} />
         <div className="div__filterMenu"  >
           <span> Genero </span>
           {genres.map((g) =>
